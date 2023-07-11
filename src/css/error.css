@@ -1,0 +1,31 @@
+.error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    background-color: black; 
+}
+.error img{
+    width: 100%;
+    padding: 15px 15px;
+    height: 43vw;
+}
+.error >.error1{
+    position: absolute;
+    margin-top: 35%;
+    width: 8rem;
+    margin-right: 70px;
+    height: 4rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    background-color: #2874f0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.error >.error1:hover{
+   
+   background-color: white;
+   color: #2874f0;
+}

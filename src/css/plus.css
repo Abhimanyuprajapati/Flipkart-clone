@@ -1,0 +1,110 @@
+.plus{
+  margin: 0px;
+    padding: 0px;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    /* font-family: sans-serif; */
+    
+}
+.plus1{
+    padding-left: 20%; 
+    margin-bottom: 2%; 
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f3f6;
+
+}
+.plus2 > .plus3{
+    margin-left: 8%;
+    padding: 10px 12px ;
+}
+.plus1>.plus4>img{
+    margin-top: -4px;
+    padding: 0px;
+    margin-bottom: 40px;
+}
+
+.plus6{
+    padding: 10px 20px;
+
+}
+.plus6>.plus7{
+    padding: 20px 0px;
+}
+.plus6>.plus7>.plus8{
+    color: #878787;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+.plus6>.plus7>p{
+    font-size: 12px;
+    color: #878787;
+    font-weight: 500;
+}
+/* ---------------footer style--------------- */
+
+.plus9{
+    background-color: #172337;
+    font-style: normal;
+    font-family: Roboto,Arial,sans-serif;
+}
+.plus10{
+    padding: 50px 0px;
+}
+.plus10>hr{
+    color: #b0aeae;
+    background-color: #b0aeae;
+}
+/* .plus10>.plus11{
+    justify-content: space-evenly;
+} */
+.plus9>.plus10{
+    display: flex;
+    justify-content: space-evenly;
+}
+.plus9>.plus10>.plus11 li{
+    color: white;
+    list-style: none;
+    padding-bottom: 10px;
+    font-size: 13px;
+    font-weight: 250;
+    cursor: pointer;
+}
+.plus9>.plus10>.plus11 li:hover{
+   text-decoration: underline;
+}
+.plus9>.plus10>.plus11 p{
+    color: white;
+    font-size: 13px;
+    /* width: 250px; */
+    font-style: normal;
+    font-family: Roboto,Arial,sans-serif;
+    
+}
+.plus9>.plus10>.plus11>.plus12{
+    color: #878787;
+    margin-bottom: 20px;
+}
+/* -------------- */
+
+.plus13{
+/* margin-top: 5px; */
+padding: 0px 70px;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.plus13>.plus14> .MuiSvgIcon-root{
+    color: rgb(237, 153, 19);
+    margin-right: 10px;
+}
+.plus13>.plus14{
+    display: flex;
+    justify-content: center;
+align-items: center;
+margin-right: 50px;
+margin-bottom: 40px;
+}

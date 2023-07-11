@@ -1,0 +1,36 @@
+.homepage {
+    /* background-color: rgb(189, 190, 190); */
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+}
+
+.navdata {
+    display: flex;
+    margin-top: 1.5%;
+    margin-bottom: 2%;
+    /* width: 100%; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(189, 190, 190); */
+}
+
+.navdata1 {
+    padding: 0px 30px;
+    /* margin-right: 5px ; */
+    cursor: pointer;
+    /* background-color: rgb(189, 190, 190); */
+}
+
+.navdata1>img {
+    width: 64px;
+}
+
+.navdata1 {
+    font-weight: 700;
+}
+
+.navdata1:hover {
+    color: #2874f0;
+}
