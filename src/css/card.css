@@ -23,6 +23,31 @@
     font-weight: 800;
 }
 
+.card10{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+
+}
+.card10 button{
+    padding: 0.2rem;
+    width: 3rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    outline: none;
+}
+.card10 button:hover{
+    filter: brightness(100%);
+    box-shadow: 0 0.3rem #040404;
+}
+
+.card10 button:active{ 
+    transform: translateY(0.2rem);
+    box-shadow: 0 0.2rem #555554;
+}
+.card10 span{
+    margin: 0.5rem;
+}
+
 .stickey{
     position: sticky;
     background-color: rgb(255, 255, 255);

@@ -62,6 +62,7 @@ export const Card = () => {
                       </span>
                     </p>
                     <p style={{ fontWeight: "500", fontSize: "1.5rem", cursor: "pointer" }} onClick={() => removeProduct(item.id)} className="card2">Remove</p>
+                    <p className="card10"><button>-</button><span>{2}</span><button>+</button></p>
                   </div>
                 </div>
                 <hr />
