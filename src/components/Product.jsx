@@ -10,13 +10,15 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { useNavigate } from "react-router-dom";
 
 export const Product = (props) => {
+
   const navigate=useNavigate();
   const cardhandler=()=>{
     navigate(`/carddetail/${productdetail.id}`)
     // console.log("card click");
   }
+
   const productdetail = props.product;
-  console.log(props);
+  // console.log("this is the props", props);
 
   return (
     <>
@@ -41,6 +43,9 @@ export const Product = (props) => {
               defaultValue={5}
               precision={productdetail.rating}
             />
+
+
+
           </CardContent>
         </CardActionArea>
       </Card>

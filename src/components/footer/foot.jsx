@@ -5,6 +5,7 @@ import HelpIcon from "@mui/icons-material/Help";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import "..//footer/foot.css";
 
+
 export const Foot = () => {
   return (
     <div className="foot">
