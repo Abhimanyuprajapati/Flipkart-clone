@@ -1,6 +1,7 @@
 import "../css/card.css"
 import { useSelector, useDispatch } from "react-redux"
 import { remove } from "../store/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 export const Card = () => {
   const product = useSelector(state => state.cart);
@@ -11,7 +12,16 @@ export const Card = () => {
   const removeProduct = (id) => {
     dispatch(remove(id));
   };
+  
+  const navigate=useNavigate()
+  const gotoHome=()=>{
+    navigate("/")
+  }
 
+  const navigate1=useNavigate()
+  const paymentPage=()=>{
+    navigate1("/payments")
+  }
 
   // calculate the total value in cart
   const totalPrice = product.reduce((accumulator, product) => accumulator + (product.price), 0);
@@ -31,7 +41,45 @@ export const Card = () => {
   let real = 0;
   let total = 0;
   return (
-    <>
+    <>{product.length==0?
+      <div  style={{
+        backgroundColor: "#f1f3f6",
+         width: "100%",
+         paddingLeft:"12rem",
+         paddingRight:"12rem",
+         paddingTop:"4rem"
+         }}>
+        <div style={{ 
+          backgroundColor: "white",
+          height: "70vh",
+          padding: "5rem",
+          display:"flex",
+          justifyContent:"center"
+          }}>
+            <div style={{
+              justifyContent:"center",
+              textAlign:"center"
+            }}>
+              <img src="https://rukminim2.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="image" height={"200vh"}/>
+              <p style={{fontSize:"1.5rem", padding:"1rem"}}>Your cart is empty!</p>
+              <p>Add items to it now.</p>
+              <button style={{
+                fontSize:"1rem", 
+                margin:"1rem",
+                width:"12vw",
+                height:"2.5rem",
+                backgroundColor:"#2874f0",
+                color:"white",
+                border:"none",
+                outline:"none",
+                borderRadius:"0.1rem",
+                cursor:"pointer"
+                }} className="shopNow" onClick={gotoHome}>Shop now</button>
+            </div>
+           
+        </div>
+      </div>
+    :
       <div style={{ padding: "2rem", marginBottom: "1rem", backgroundColor: "#f1f3f6", width: "100%", display: "flex", justifyContent: "center" }}>
         <div className="leftDiv" style={{ backgroundColor: "white", Width: "60%", height: "auto", padding: "1rem" }}>
           <h2 style={{ color: "#2874f0", textAlign: "center" }}>Product List</h2>
@@ -71,7 +119,7 @@ export const Card = () => {
             )
           })}
           <div className="stickey">
-            <button className="stickey2">PLACE ORDER</button>
+            <button className="stickey2" onClick={paymentPage}>PLACE ORDER</button>
             <br />
           </div>
           <br />
@@ -113,11 +161,12 @@ export const Card = () => {
           </div>
 
           <div className="stickey3" style={{textAlign:"center"}}>
-                <button className="stickey4">PLACE ORDER</button>
+                <button className="stickey4" onClick={paymentPage}>PLACE ORDER</button>
           </div>
           <br />
         </div >
       </div>
+}
     </>
   )
 }

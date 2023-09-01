@@ -71,21 +71,28 @@
     cursor: pointer;
 }
 
+/*
 .header_third {
-    margin-left: 12vh;
+    /* margin-left: 12vh;
     background-color: #fff;
     cursor: pointer;
     border-radius: 2px;
     height: 35px;
     padding: 5px 40px;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #dbdbdb; 
 }
+*/
 
 .header_third>button {
     border: none;
     outline: none;
     font-size: 16px;
     font-weight: 600;
+    width: 5.5rem;
+    height: 2.5rem;
+    margin-left: 12vh;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
     background-color: white;
     color: #2874f0;
     cursor: pointer;
@@ -110,4 +117,19 @@
     font-size: 16px;
     font-family: sans-serif;
     cursor: pointer;
+}
+
+/* responsive header */
+@media (max-width: 690px) {
+    .header {
+        display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px; /* Increase padding for better spacing */
+      z-index: 1000;
+      height: auto;
+      flex: 1;
+    
+      
+    }
 }

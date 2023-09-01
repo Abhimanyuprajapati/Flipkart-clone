@@ -45,3 +45,10 @@
 .loginT1>.loginT6:hover{
     text-decoration:underline;
 }
+
+.loginT5:hover{
+    cursor: pointer;
+}
+.loginT6:hover{
+    cursor: pointer;
+}

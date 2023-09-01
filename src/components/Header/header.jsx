@@ -9,9 +9,41 @@ import { LoginT } from '../loginT';
 import 'tippy.js/themes/light.css'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { UserLogin } from '../UserLogin';
+import { useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 export const Header = () => {
+
+// open the login form 
+const [opener,setOpener]=useState(false)
+const Model=({children,open,onclose})=>{
+  if(!open) return null;
+ return(
+  <>
+   
+    <div>
+        <div onClick={onclose} style={{
+          zIndex:"2000",
+          position:"absolute",
+          top:"30",
+          marginLeft:"25.2rem",
+          backgroundColor:"#2874f0",
+          color:"white",
+          borderRadius:"3px",
+          marginTop:"1.3rem"
+      }}>
+          <CloseIcon/>
+        </div>
+
+      {children}
+      </div>
+  </>
+ )
+}
+
+
   const navigate=useNavigate();
   const homepage=()=>{
     navigate("/")
@@ -34,6 +66,17 @@ export const Header = () => {
 const cartCount=useSelector(state=>state.cart);
 console.log("this is the count",cartCount);
 
+
+const blacker={
+  position:"fixed",
+  top:"0",
+  bottom:"0",
+  left:"0",
+  right:"0",
+  backgroundColor:"rgba(0,0,0,0.7)",
+  zIndex:1000
+}
+
   return (
    <div className="header">
     <div className="header_first">
@@ -50,8 +93,13 @@ console.log("this is the count",cartCount);
     </div>
     <div className="header_third">
     <Tippy theme="light" interactive={true}  content={<LoginT/>}>
-      <button>Login</button>
+      <button onClick={()=>setOpener(true)} >Login</button>
       </Tippy>
+      <Model open={opener} onclose={()=>{setOpener(false)}} >
+          <UserLogin/>
+      </Model>
+       
+       {/*this is login components  */} {/*--------------------------------------*/}
     </div>
     <div className="header_fourth">
       <span onClick={comingsoon}>Become a Seller</span>
@@ -60,7 +108,7 @@ console.log("this is the count",cartCount);
     <Tippy  theme="light" interactive={true}  content={<MoreT/> }>
     <span>More</span>
     </Tippy>
-    <span><KeyboardArrowDownIcon/></span>
+    {/* <span><KeyboardArrowDownIcon/></span> */}
     </div>
     <div className="header_sixth" onClick={cardRoute}>
       <span><ShoppingCartIcon /></span>

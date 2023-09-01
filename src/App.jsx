@@ -8,6 +8,7 @@ import ErrorPage from "./components/error";
 import { Foot } from "./components/footer/foot";
 import { ComingSoon } from "./components/ComingSoon";
 import { Card } from "./components/card";
+import { Payments } from "./components/Payments";
 // import { Product } from "./components/Product";
 // import "../src/css/home.css"
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="carddetail/:id" element={<CardDetail/>}/>
             <Route path="/comingsoon" element={<ComingSoon/>}/>
             <Route path="/card" element={<Card/>}/>
+            <Route path="/payments" element={<Payments/>}/>
             <Route path="*" element={<ErrorPage/>}/>
           </Routes>
           <Foot/> 

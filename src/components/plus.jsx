@@ -29,6 +29,8 @@ export const Plus = () => {
           <img src="./src/img/Screenshot 2023-06-25 204728.png" alt="img" />
         </div>
       </div>
+
+      {/* 
       <div className="plus6">
         <div className="plus7">
           <h1 className="plus8">
@@ -98,7 +100,10 @@ export const Plus = () => {
           </p>
         </div>
       </div>
+       */}
       {/* ------------------footer------- */}
+
+       {/*
       <div className="plus9">
         <div className="plus10">
           <div className="plus11">
@@ -171,6 +176,8 @@ export const Plus = () => {
           </div>
         </div>
         {/* <hr /> */}
+
+        {/*  
         <div className="plus13">
           <span className="plus14">
             <WorkIcon />
@@ -200,6 +207,7 @@ export const Plus = () => {
           </span>
         </div>
       </div>
+       */}
     </div>
   );
 };

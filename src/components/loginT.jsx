@@ -13,6 +13,12 @@ export const LoginT = () => {
     const pluspage=()=>{
       navigate1("/plus")
     }
+
+    const navigate2=useNavigate();
+    const comingSoon=()=>{
+        navigate2("/comingsoon")
+    }
+
   return (
     <div className='loginT'>
         <div className='loginT1'>
@@ -20,7 +26,7 @@ export const LoginT = () => {
            <span className='loginT6'>Sign Up</span>
         </div>
         <hr />
-        <div className='loginT1'>
+        <div className='loginT1' onClick={comingSoon}>
             <span className='loginT2'>< AccountCircleIcon/></span>
             <span>My Profile</span>
         </div>
@@ -30,22 +36,22 @@ export const LoginT = () => {
             <span>Flipkart Plus Zone</span>
         </div>
         <hr />
-        <div className='loginT1'>
+        <div className='loginT1' onClick={comingSoon}>
             <span className='loginT2'>< BrandingWatermarkIcon/></span>
             <span>Orders</span>
         </div>
         <hr />
-        <div className='loginT1'>
+        <div className='loginT1' onClick={comingSoon}>
             <span className='loginT2'>< FavoriteIcon/></span>
             <span>Wishlist</span>
         </div>
         <hr />
-        <div className='loginT1'>
+        <div className='loginT1' onClick={comingSoon}>
             <span className='loginT2'>< EmojiEventsIcon/></span>
             <span>Rewards</span>
         </div>
         <hr />
-        <div className='loginT1'>
+        <div className='loginT1' onClick={comingSoon}>
             <span className='loginT2'>< CardGiftcardIcon/></span>
             <span>Gift Cards</span>
         </div>

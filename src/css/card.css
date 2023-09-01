@@ -48,6 +48,11 @@
     margin: 0.5rem;
 }
 
+/* this is emptyCart */
+.shopNow:active{
+    transform: translateY(0.1rem);
+}
+
 .stickey{
     position: sticky;
     background-color: rgb(255, 255, 255);
