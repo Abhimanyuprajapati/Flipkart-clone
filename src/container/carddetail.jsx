@@ -10,6 +10,7 @@ import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { useDispatch } from 'react-redux';
 import { add } from '../store/cartSlice.jsx'
+import toast, { Toaster } from 'react-hot-toast';
 
 
 /*
@@ -55,6 +56,7 @@ export const CardDetail = () => {
 // add to cart logic
 const dispatch=useDispatch();
 const AddToCard=(productinfo)=>{
+    toast.success('Product Added To Cart Successfully!')
     dispatch(add(productinfo));
 }
 
@@ -109,6 +111,10 @@ const AddToCard=(productinfo)=>{
                 <div className='right8'><span className='right9'>{productinfo.brand} </span> 1 Years Warranty with Product Registration <span  className='right7'>Know More</span></div>
             </div>
         </div>
+        <Toaster
+            position="top-right"
+            reverseOrder={false}
+        />
     </div>
     </>
   )

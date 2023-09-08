@@ -43,9 +43,6 @@ export const Product = (props) => {
               defaultValue={5}
               precision={productdetail.rating}
             />
-
-
-
           </CardContent>
         </CardActionArea>
       </Card>

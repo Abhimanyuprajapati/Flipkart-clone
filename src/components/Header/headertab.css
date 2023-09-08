@@ -119,6 +119,19 @@
     cursor: pointer;
 }
 
+.getnamestyle{
+    width: 10vw;
+    height: 6vh;
+    padding: 0.6rem;
+    margin-left: 3rem;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius:50%;
+    color:#2874f0;
+    background-color: white;
+    cursor: pointer;
+}
+
 /* responsive header */
 @media (max-width: 690px) {
     .header {

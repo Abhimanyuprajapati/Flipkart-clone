@@ -14,21 +14,23 @@ import { Payments } from "./components/Payments";
 
 
 function App() {
- 
+
   return (
     <>
-     
-        <Header/>
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="plus" element={<Plus/>}/>
-            <Route path="carddetail/:id" element={<CardDetail/>}/>
-            <Route path="/comingsoon" element={<ComingSoon/>}/>
-            <Route path="/card" element={<Card/>}/>
-            <Route path="/payments" element={<Payments/>}/>
-            <Route path="*" element={<ErrorPage/>}/>
-          </Routes>
-          <Foot/> 
+
+      <Header />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="plus" element={<Plus />} />
+          <Route path="carddetail/:id" element={<CardDetail />} />
+          <Route path="/comingsoon" element={<ComingSoon />} />
+          <Route path="/card" element={<Card />} />
+          <Route path="*" element={<ErrorPage />} />
+          <Route exact path="/payments" element={<Payments />} />
+        </Routes>
+      </div>
+      <Foot />
     </>
   )
 }
