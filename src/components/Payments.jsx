@@ -4,7 +4,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import toast, { Toaster } from 'react-hot-toast';
 import { useDispatch } from "react-redux";
 import { clearAllState } from "../store/cartSlice";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const Payments = () => {
     const onToken = (token) => {
@@ -28,9 +28,10 @@ export const Payments = () => {
 
     // local storage parts
     const userInformation = JSON.parse(localStorage.getItem('user')); 
-    const userName=userInformation[0].name;
-    const userEmail=userInformation[0].email;
-    const userNumber=userInformation[0].number;
+    const userName=userInformation[0].username;
+    const userEmail=userInformation[0].useremail;
+    const userNumber=userInformation[0].phoneNumber;
+    console.log("this is the user number====>",userNumber);
 
     // this is for total price from local storage
     const total=JSON.parse(localStorage.getItem("total"));
@@ -56,7 +57,7 @@ export const Payments = () => {
             setError('Please select an option');
         } 
         if (selectedOption !== ''){
-            toast.success('Thank You! \n Your payment received successfully \n order Confirm \n product will be delivered on time',
+            toast.success('Thank You! \n \n order Confirm \n product will be delivered on time',
             {
                 duration: 2000,
             }
@@ -69,6 +70,19 @@ export const Payments = () => {
         }
     };
 
+    const [address,setAddress]=useState("Enter your address");
+    const AddressOne=(e)=>{
+        setAddress(e.target.value);
+    }
+     const inputref=useRef();
+    const Addressfocus=()=>{
+       inputref.current.focus();
+    }
+
+    const refNumber=useRef();
+    const inputnumber=()=>{
+        refNumber.current.focus();
+    }
     return (
         <>
             <div className="payments1">
@@ -92,10 +106,10 @@ export const Payments = () => {
 
                         <div>
                             <h3 style={{ fontWeight: "500", paddingTop: "0.5rem" }}>{userName}</h3>
-                            <h3 style={{ fontWeight: "500", paddingTop: "0.5rem" }}>+91 {userNumber}</h3>
+                            <h3 style={{ fontWeight: "500", paddingTop: "0.5rem" }}>+91 {userNumber!==null?userNumber:<input type="number" required ref={refNumber} style={{border:"none", fontSize:"1rem"}}/>}</h3>
                             <h3 style={{ fontWeight: "500", paddingTop: "0.5rem" }}>{userEmail}</h3>
                         </div>
-                        <button className="loginDetail2">CHANGE</button>
+                        <button className="loginDetail2" onClick={inputnumber}>CHANGE</button>
                     </div>
                     <div className="addressDetail">
                         <span style={{
@@ -111,8 +125,8 @@ export const Payments = () => {
                             fontFamily: "sans-serif"
                         }}>address</span>
 
-                        <div><h3 style={{ fontWeight: "500", paddingTop: "1rem" }}>jai hind chawl waghoba nagar kalwa east</h3></div>
-                        <button className="addressDetail2">CHANGE</button>
+                        <div><h3 style={{ fontWeight: "500", paddingTop: "1rem" }}><input type="textarea" value={address} ref={inputref} required onChange={AddressOne} style={{width:"40vw", height:"2rem", border:"none"}}/></h3></div>
+                        <button className="addressDetail2" onClick={Addressfocus}>Edit your Address</button>
                     </div>
                     <div className="paymentsDetail">
                         <span style={{
@@ -167,3 +181,4 @@ export const Payments = () => {
 }
 
 // onClick={confirmPage}
+//  

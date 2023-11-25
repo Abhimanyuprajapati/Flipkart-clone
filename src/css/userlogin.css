@@ -56,3 +56,25 @@
     background-color: #2874f0;
     color: white;
 }
+.home{
+    background-color:#fb641b;
+    color:white;
+    width: 14vw;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.2rem;
+}
+.home:active{
+    transform: translateY(0.2rem);
+}
+
+.GoogleLogo{
+    justify-content: center;
+    text-align: center;
+    background-color: #fb641b;
+    color: white;
+    font-size: 1.2rem;
+}
+.GoogleLogo:active{
+    transform: translateY(0.2rem);
+}

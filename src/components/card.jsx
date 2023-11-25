@@ -14,8 +14,8 @@ export const Card = () => {
     toast.success('Product Remove To Cart Successfully.', {
       style: {
         padding: '16px',
-        backgroundColor:"black",
-        color:"white",
+        backgroundColor: "black",
+        color: "white",
       }
     });
     dispatch(remove(id));
@@ -27,9 +27,29 @@ export const Card = () => {
   }
 
   const navigate1 = useNavigate()
+  const navigate2 = useNavigate()
+
   const paymentPage = () => {
-    localStorage.setItem("total", JSON.stringify({total}));
-    navigate1("/payments")
+    if (localStorage.getItem('user') == null || undefined) {
+      toast.success('Please login first.', {
+        style: {
+          padding: '16px',
+          backgroundColor: "black",
+          color: "white",
+        }
+      });
+      // navigate("/");
+
+      setTimeout(() => {
+        navigate2('/loginPage');
+        toast.success('Please login first.');
+    },200)
+
+    }
+    else {
+      localStorage.setItem("total", JSON.stringify({ total }));
+      navigate1("/payments")
+    }
   }
 
   // calculate the total value in cart
@@ -176,10 +196,10 @@ export const Card = () => {
         </div >
       </div>
     }
-    <Toaster
-      position="top-right"
-      reverseOrder={false}
-    />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
     </>
   )
 }

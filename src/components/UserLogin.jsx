@@ -3,15 +3,14 @@ import "../css/UserLogin.css";
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, json, useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
-import { auth,provider } from "../../firebase";
-// import { signInWithPopup } from "@firebase";
+import { auth, provider } from "../../firebase";
 import { signInWithPopup } from "firebase/auth";
-import GoogleIcon from '@mui/icons-material/Google';
+// import GoogleIcon from '@mui/icons-material/Google';
 
 const initialState = {
-    name: "",
-    email: "",
-    number:"",
+    username: "",
+    useremail: "",
+    phoneNumber: "",
     password: ""
 }
 
@@ -22,22 +21,39 @@ export const UserLogin = ({ closeBtnHandler }) => {
 
     const signupHandler = (e) => {
         e.preventDefault();
-        const userDataArr = JSON.parse(localStorage.getItem('user')) || [];
+        // const userDataArr = JSON.parse(localStorage.getItem('user')) || [];
+        const userDataArr = [];
         userDataArr.push(signupData);
         localStorage.setItem('user', JSON.stringify(userDataArr));
         toast.success('Registered Successfully')
         setTimeout(() => {
-            navigate('/'); 
+            navigate('/');
             closeBtnHandler();
-        },1200)   
+        }, 1200)
     }
 
-    const GoogleAuth=()=>{
+    const GoogleAuth = () => {
         // add the firebase code here
-        signInWithPopup(auth,provider).then((result)=>{
-            console.log("result",result);
-        }).catch((error)=>{
-            console.log("error",error);
+        signInWithPopup(auth, provider).then((result) => {
+            console.log("result", result);
+            const username = result.user.displayName;
+            const useremail = result.user.email;
+            const userurl = result.user.photoURL;
+            const phoneNumber = result.user.phoneNumber;
+            const userDataArr = [{
+                username: username,
+                useremail: useremail,
+                phoneNumber: phoneNumber,
+                userurl: userurl
+            }];
+            localStorage.setItem('user', JSON.stringify(userDataArr));
+            toast.success('Registered Successfully')
+            setTimeout(() => {
+                navigate('/');
+                closeBtnHandler();
+            }, 1200)
+        }).catch((error) => {
+            console.log("error", error);
         })
     }
 
@@ -69,27 +85,29 @@ export const UserLogin = ({ closeBtnHandler }) => {
                         <form onSubmit={signupHandler}>
                             <label htmlFor="name" className="name">Enter Your Name</label>
 
-                            <input type="text" id="name" onChange={(e) => setSignupData({ ...signupData, name: e.target.value })}  required placeholder="Enter Your Name" />
+                            <input type="text" id="name" onChange={(e) => setSignupData({ ...signupData, username: e.target.value })} required placeholder="Enter Your Name" />
 
                             <label htmlFor="email" className="name">Enter Your Email</label>
 
-                            <input type="email" id="email" onChange={(e) => setSignupData({ ...signupData, email: e.target.value })} required placeholder="Enter Your Email" />
+                            <input type="email" id="email" onChange={(e) => setSignupData({ ...signupData, useremail: e.target.value })} required placeholder="Enter Your Email" />
 
                             <label htmlFor="number" className="name">Enter Your number</label>
 
-                            <input type="text" id="number"  onChange={(e) => setSignupData({ ...signupData, number: e.target.value })} required placeholder="Enter Your number" />
+                            <input type="text" id="number" onChange={(e) => setSignupData({ ...signupData, phoneNumber: e.target.value })} required placeholder="Enter Your number" />
 
                             <label htmlFor="password" className="name">Enter Your Password</label>
 
-                            <input type="password" id="password"  onChange={(e) => setSignupData({ ...signupData, password: e.target.value })} required placeholder="Enter Your Password" />
+                            <input type="password" id="password" onChange={(e) => setSignupData({ ...signupData, password: e.target.value })} required placeholder="Enter Your Password" />
 
                             <p>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</p>
 
                             <button className="home">Submit</button>
                         </form>
-                        
-                        <h1>Or</h1>
-                        <button onClick={GoogleAuth}><GoogleIcon/> Sign in with Google </button>
+                        <br />
+                        <h1 style={{ color: "#2874f0" }}>Or</h1>
+                        <button onClick={GoogleAuth} className="GoogleLogo">
+                            <img src="data:image/png;base64,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"
+                                alt="google" width={"23px"} style={{ marginBottom: "-4px", borderRadius: "50%", marginRight: "1rem" }} /> Sign in with Google </button>
 
                         <div className="xcloser" onClick={closeBtnHandler}>
                             <CloseIcon />
@@ -99,8 +117,8 @@ export const UserLogin = ({ closeBtnHandler }) => {
 
             </div>
             <Toaster
-            position="top-right"
-            reverseOrder={false}
+                position="top-right"
+                reverseOrder={false}
             />
         </div>
     )

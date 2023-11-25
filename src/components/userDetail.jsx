@@ -9,6 +9,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import "../css/loginT.css";
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { useDispatch } from "react-redux";
+import { clearAllState } from "../store/cartSlice";
 
 export const UserDetail = () => {
     const navigate1=useNavigate();
@@ -23,14 +25,17 @@ export const UserDetail = () => {
 
     // local storage part
     const userInformation = JSON.parse(localStorage.getItem('user'));
-    const userName=userInformation[0].name;
-    console.log(userName);
+    // const userName=userInformation[0].name;
+    const userName=userInformation[0].username
+    // console.log(userName);
 
     // logout function
+    const dispatch = useDispatch();
     const navigate=useNavigate();
     const logouter=()=>{
         toast.success('You have successfully logged out!')
         setTimeout(() => {
+            dispatch(clearAllState());
             localStorage.clear();
             navigate('/');   
         }, 1500);

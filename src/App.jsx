@@ -9,6 +9,7 @@ import { Foot } from "./components/footer/foot";
 import { ComingSoon } from "./components/ComingSoon";
 import { Card } from "./components/card";
 import { Payments } from "./components/Payments";
+import { UserLogin } from "./components/UserLogin";
 // import { Product } from "./components/Product";
 // import "../src/css/home.css"
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/card" element={<Card />} />
           <Route path="*" element={<ErrorPage />} />
           <Route exact path="/payments" element={<Payments />} />
+          <Route exact path="/loginPage" element={<UserLogin />} />
         </Routes>
       </div>
       <Foot />
